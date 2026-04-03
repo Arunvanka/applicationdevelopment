@@ -1,0 +1,10 @@
+{
+  "name": "order-management-app",
+  "version": "1.0.0",
+  "description": "A simple order management application",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -l 3000"
+  },
+  "devDependencies": {}
+}

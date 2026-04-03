@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management App</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Page -->
+        <div id="login-page" class="page active">
+            <div class="login-container">
+                <h1>Order Management</h1>
+                <h2>Login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter password" required>
+                    </div>
+                    <div id="login-error" class="error-message" hidden>Invalid username or password</div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main App (shown after login) -->
+        <div id="main-app" hidden>
+            <nav class="navbar">
+                <div class="nav-brand">Order Management</div>
+                <ul class="nav-links">
+                    <li><a href="#" data-page="home-page" class="nav-link active">Home</a></li>
+                    <li><a href="#" data-page="reports-page" class="nav-link">Reports</a></li>
+                    <li><a href="#" data-page="about-page" class="nav-link">About</a></li>
+                </ul>
+                <button id="logout-btn" class="btn btn-logout">Logout</button>
+            </nav>
+
+            <!-- Home Page -->
+            <div id="home-page" class="page active">
+                <div class="container">
+                    <h2>Place an Order</h2>
+                    <form id="order-form">
+                        <fieldset>
+                            <legend>Customer Details</legend>
+                            <div class="form-group">
+                                <label for="customer-name">Name</label>
+                                <input type="text" id="customer-name" name="customerName" placeholder="Enter full name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="customer-address">Address</label>
+                                <textarea id="customer-address" name="customerAddress" rows="3" placeholder="Enter address" required></textarea>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Order Items</legend>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="item1">Item 1</label>
+                                    <input type="text" id="item1" name="item1" placeholder="Item name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qty1">Quantity</label>
+                                    <input type="number" id="qty1" name="qty1" min="0" value="0">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="item2">Item 2</label>
+                                    <input type="text" id="item2" name="item2" placeholder="Item name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qty2">Quantity</label>
+                                    <input type="number" id="qty2" name="qty2" min="0" value="0">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" id="cancel-btn" class="btn btn-secondary">Cancel</button>
+                            <button type="reset" class="btn btn-outline">Reset</button>
+                        </div>
+                    </form>
+
+                    <!-- Orders Table -->
+                    <div id="orders-section" hidden>
+                        <h3>Submitted Orders</h3>
+                        <table id="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Item 1</th>
+                                    <th>Qty</th>
+                                    <th>Item 2</th>
+                                    <th>Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reports Page -->
+            <div id="reports-page" class="page">
+                <div class="container">
+                    <h2>Reports</h2>
+                    <div class="card">
+                        <h3>Order Summary</h3>
+                        <p id="report-total-orders">Total Orders: 0</p>
+                        <p id="report-total-items">Total Items Ordered: 0</p>
+                    </div>
+                    <div class="card">
+                        <p>More reports will be available once the backend database is connected.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Page -->
+            <div id="about-page" class="page">
+                <div class="container">
+                    <h2>About</h2>
+                    <div class="card">
+                        <h3>Order Management Application</h3>
+                        <p>A simple order management system built with HTML, CSS, and JavaScript.</p>
+                        <p>Version: 1.0.0</p>
+                        <h4>Features</h4>
+                        <ul>
+                            <li>User authentication</li>
+                            <li>Order placement with customer details</li>
+                            <li>Basic reporting</li>
+                        </ul>
+                        <h4>Upcoming</h4>
+                        <ul>
+                            <li>Backend API with Node.js + Express</li>
+                            <li>Local SQLite database</li>
+                            <li>Advanced reporting and search</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
